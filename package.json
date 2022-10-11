@@ -1,0 +1,18 @@
+{
+  "name": "aws-iot-device-credentials-workaround",
+  "version": "0.0.0-development",
+  "description": "Demonstrate how to use fleet provisioning via non-standard MQTT API to circumvent the 2k buffer size limit in the nRF9160 modem",
+  "author": "Nordic Semiconductor ASA | nordicsemi.no",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "devDependencies": {
+    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.133",
+    "tsx": "3.10.1",
+    "typescript": "4.8.4"
+  },
+  "dependencies": {
+    "aws-crt": "1.14.5",
+    "aws-iot-device-sdk-v2": "1.8.9"
+  },
+  "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc"
+}
