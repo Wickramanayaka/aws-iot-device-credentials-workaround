@@ -5,7 +5,6 @@
     "strict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -14,8 +13,10 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true
-  },
-  "include": ["."]
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
 }

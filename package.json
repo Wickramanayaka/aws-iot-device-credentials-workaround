@@ -5,12 +5,31 @@
   "author": "Nordic Semiconductor ASA | nordicsemi.no",
   "license": "BSD-3-Clause",
   "type": "module",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
   "devDependencies": {
+    "@aws-sdk/client-cloudformation": "3.186.0",
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.133",
+    "@nordicsemiconductor/cloudformation-helpers": "7.0.6",
+    "@types/glob": "8.0.0",
+    "@types/yazl": "2.4.2",
+    "aws-cdk-lib": "2.45.0",
+    "cdk": "2.45.0",
+    "chalk": "5.1.0",
+    "constructs": "10.1.128",
+    "dependency-tree": "8.1.2",
+    "esbuild": "0.15.10",
+    "glob": "8.0.3",
     "tsx": "3.10.1",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "yazl": "2.5.1"
   },
   "dependencies": {
+    "@aws-sdk/client-iot": "3.186.0",
+    "@aws-sdk/client-iot-data-plane": "3.186.0",
+    "@nordicsemiconductor/from-env": "1.0.2",
     "aws-crt": "1.14.5",
     "aws-iot-device-sdk-v2": "1.8.9"
   },

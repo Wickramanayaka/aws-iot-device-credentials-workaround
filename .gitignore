@@ -1,2 +1,4 @@
-node_modules/
-certificate/
+/node_modules/
+/certificates/
+/cdk.out/
+/dist/

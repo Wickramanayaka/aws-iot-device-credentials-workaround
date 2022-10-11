@@ -1,25 +1,28 @@
 import { DescribeEndpointCommand, IoTClient } from '@aws-sdk/client-iot'
 import chalk from 'chalk'
+import { provision } from 'device/provision'
 import { stat } from 'node:fs/promises'
 import path from 'node:path'
-import { connect } from './device/connect'
 
-const { magenta, yellow, green, gray } = chalk
+const { magenta, yellow, green, blue } = chalk
 
-const deviceId = process.argv[process.argv.length - 1] ?? ''
-console.debug(magenta('Device ID'), yellow(deviceId))
+const certificateId = process.argv[process.argv.length - 1]
+console.debug(magenta('Certificate ID'), yellow(certificateId))
 const privateKeyFile = path.join(
 	process.cwd(),
 	'certificates',
-	`${deviceId}.pem.key`,
+	`${certificateId}.pem.key`,
 )
 const certificateFile = path.join(
 	process.cwd(),
 	'certificates',
-	`${deviceId}.pem.crt`,
+	`${certificateId}.pem.crt`,
 )
 await stat(privateKeyFile)
 await stat(certificateFile)
+
+export const deviceId = `node-${Math.floor(Math.random() * 100000000)}`
+console.debug(magenta('Device ID'), yellow(deviceId))
 
 const brokerHostname = (
 	await new IoTClient({}).send(
@@ -30,13 +33,13 @@ const brokerHostname = (
 ).endpointAddress as string
 console.debug(magenta('Endpoint'), yellow(brokerHostname))
 
-console.debug(gray(`Connecting...`))
-
-await connect({
+await provision({
+	deviceId,
+	brokerHostname,
 	privateKeyFile,
 	certificateFile,
-	brokerHostname,
-	deviceId,
 })
 
-console.log(green(`Connected!`))
+console.log('')
+console.log(green(`You can now connect with the new credentials:`))
+console.log(blue(`npx tsx connect.ts`), yellow.dim(deviceId))

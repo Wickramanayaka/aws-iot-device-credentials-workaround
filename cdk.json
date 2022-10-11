@@ -1,0 +1,3 @@
+{
+  "app": "node --loader tsx --unhandled-rejections=strict cdk/fleet-provisioning.ts"
+}
